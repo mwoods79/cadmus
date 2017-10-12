@@ -10,15 +10,6 @@ defmodule Cadmus.RequestHandler do
   end
 
   def parse(request) do
-    [top, params_string] = String.split(request, "\r\n\r\n")
-
-    [request_line | header_lines] = String.split(top, "\r\n")
-
-    [method, path, _] = String.split(request_line, " ")
-
-    %Conn{method: method, path: path}
-    |> parse_headers(header_lines)
-    |> parse_params(params_string)
   end
 
   @doc """
@@ -32,9 +23,6 @@ defmodule Cadmus.RequestHandler do
       %{req_headers: ["Accept" => "application/json", "X-Foo" => "bar"]}
   """
   def parse_headers(%Conn{} = conn, [head | tail]) do
-    [key, value] = String.split(head, ": ")
-    conn = Conn.put_req_header(conn, key, value)
-    parse_headers(conn, tail)
   end
 
   def parse_headers(%Conn{} = conn, []), do: conn
@@ -53,15 +41,7 @@ defmodule Cadmus.RequestHandler do
       %{}
   """
   def parse_params(%Conn{} = conn, params_string) do
-    parse_params(conn, conn.req_headers["Content-Type"], params_string)
   end
-
-  def parse_params(%Conn{} = conn, "application/x-www-form-urlencoded", params_string) do
-    query_params = params_string |> String.trim |> URI.decode_query
-    %{conn | query_params: query_params}
-  end
-
-  def parse_params(%Conn{} = conn, _, _), do: conn
 
   def reply(%Conn{} = conn) do
     """

@@ -44,7 +44,6 @@ defmodule Cadmus.Conn do
 
   """
   def put_resp_body(%Conn{} = conn, body) do
-    %{ conn | resp_body: body }
   end
 
   @doc """
@@ -57,7 +56,6 @@ defmodule Cadmus.Conn do
 
   """
   def put_method(%Conn{} = conn, method) do
-    %{ conn | method: method }
   end
 
   @doc """
@@ -72,8 +70,6 @@ defmodule Cadmus.Conn do
 
   """
   def put_req_header(%Conn{} = conn, key, value) do
-    new_headers = Map.put(conn.req_headers, key, value)
-    %{conn | req_headers: new_headers }
   end
 
   @doc """
@@ -86,7 +82,6 @@ defmodule Cadmus.Conn do
 
   """
   def put_path(%Conn{} = conn, path) do
-    %{ conn | path: path }
   end
 
   @doc """
@@ -101,7 +96,5 @@ defmodule Cadmus.Conn do
 
   """
   def put_resp_header(%Conn{} = conn, key, value) do
-    new_headers = Map.put(conn.resp_headers, key, value)
-    %{conn | resp_headers: new_headers }
   end
 end
