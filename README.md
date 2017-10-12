@@ -1,21 +1,20 @@
 # Cadmus
 
-**TODO: Add description**
+## This repo is used for a workshop at Jax.Ex
 
-## Installation
+In this workshop we build a Phoenix like clone.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `cadmus` to your list of dependencies in `mix.exs`:
+Sections:
 
-```elixir
-def deps do
-  [
-    {:cadmus, "~> 0.1.0"}
-  ]
-end
-```
+1. Conn
+2. Routing
+3. Controllers
+4. Views
+5. Concurency
+6. Cowboy
+7. Ecto
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/cadmus](https://hexdocs.pm/cadmus).
 
+# Conn
+
+In this first section we will learn about structs and pattern matching.
