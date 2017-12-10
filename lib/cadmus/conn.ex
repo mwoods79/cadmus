@@ -44,6 +44,7 @@ defmodule Cadmus.Conn do
 
   """
   def put_resp_body(%Conn{} = conn, body) do
+    %{ conn | resp_body: body }
   end
 
   @doc """
@@ -56,10 +57,11 @@ defmodule Cadmus.Conn do
 
   """
   def put_method(%Conn{} = conn, method) do
+    %{ conn | method: method }
   end
 
   @doc """
-  Add a http response header
+  Add a http request header
 
   ## Examples
 
@@ -70,6 +72,8 @@ defmodule Cadmus.Conn do
 
   """
   def put_req_header(%Conn{} = conn, key, value) do
+    req_headers = Map.put(conn.req_headers, key, value)
+    %{ conn | req_headers: req_headers }
   end
 
   @doc """
@@ -82,6 +86,7 @@ defmodule Cadmus.Conn do
 
   """
   def put_path(%Conn{} = conn, path) do
+    %{ conn | path: path }
   end
 
   @doc """
@@ -96,5 +101,7 @@ defmodule Cadmus.Conn do
 
   """
   def put_resp_header(%Conn{} = conn, key, value) do
+    resp_headers = Map.put(conn.resp_headers, key, value)
+    %{ conn | resp_headers: resp_headers }
   end
 end
