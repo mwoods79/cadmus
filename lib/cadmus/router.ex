@@ -1,5 +1,5 @@
 defmodule Cadmus.Router do
-  use Cadmus
+  use Cadmus, :router
   alias Cadmus.DogController
   alias Cadmus.HelloController
 

@@ -24,7 +24,7 @@ defmodule Cadmus do
   #
   # a. Change `import Cadmus.Conn` to `use Cadmus` in `Cadmus.Router`.
   # b. Use the `get` and `post` macros in `Cadmus.Router`.
-  defmacro __using__(_opts) do
+  def router do
     quote do
       import Cadmus
       import Cadmus.Conn
@@ -33,6 +33,10 @@ defmodule Cadmus do
         match(conn, conn.method, conn.path)
       end
     end
+  end
+
+  defmacro __using__(which) when is_atom(which) do
+    apply(__MODULE__, which, [])
   end
 
   defmacro get(path, controller, action) do
