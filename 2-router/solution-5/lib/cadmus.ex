@@ -41,16 +41,16 @@ defmodule Cadmus do
 
   defmacro get(path, controller, action) do
     quote do
-      def match(var!(conn), "GET", unquote(path)) do
-        apply(unquote(controller), unquote(action), [var!(conn), var!(conn).query_params])
+      def match(conn, "GET", unquote(path)) do
+        apply(unquote(controller), unquote(action), [conn, conn.query_params])
       end
     end
   end
 
   defmacro post(path, controller, action) do
     quote do
-      def match(var!(conn), "POST", unquote(path)) do
-        apply(unquote(controller), unquote(action), [var!(conn), var!(conn).query_params])
+      def match(conn, "POST", unquote(path)) do
+        apply(unquote(controller), unquote(action), [conn, conn.query_params])
       end
     end
   end
