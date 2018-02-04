@@ -5,14 +5,14 @@ defmodule Cadmus.Conn do
 
   alias __MODULE__
 
-  defstruct method:             "GET",
-            path:               "",
-            req_headers:        %{},
-            query_params:       %{},
-            status:             nil,
-            resp_content_type:  "text/html",
-            resp_body:          nil,
-            resp_headers:       %{}
+  defstruct method: "GET",
+            path: "",
+            req_headers: %{},
+            query_params: %{},
+            status: nil,
+            resp_content_type: "text/html",
+            resp_body: nil,
+            resp_headers: %{}
 
   @doc """
   Convience method to create a new Cadmus.Conn
@@ -31,7 +31,7 @@ defmodule Cadmus.Conn do
 
   """
   def put_status(%Conn{} = conn, status) do
-    %{ conn | status: status }
+    %{conn | status: status}
   end
 
   @doc """
@@ -44,7 +44,7 @@ defmodule Cadmus.Conn do
 
   """
   def put_resp_body(%Conn{} = conn, body) do
-    %{ conn | resp_body: body }
+    %{conn | resp_body: body}
   end
 
   @doc """
@@ -57,7 +57,7 @@ defmodule Cadmus.Conn do
 
   """
   def put_method(%Conn{} = conn, method) do
-    %{ conn | method: method }
+    %{conn | method: method}
   end
 
   @doc """
@@ -73,7 +73,7 @@ defmodule Cadmus.Conn do
   """
   def put_req_header(%Conn{} = conn, key, value) do
     req_headers = Map.put(conn.req_headers, key, value)
-    %{ conn | req_headers: req_headers }
+    %{conn | req_headers: req_headers}
   end
 
   @doc """
@@ -86,7 +86,7 @@ defmodule Cadmus.Conn do
 
   """
   def put_path(%Conn{} = conn, path) do
-    %{ conn | path: path }
+    %{conn | path: path}
   end
 
   @doc """
@@ -102,6 +102,6 @@ defmodule Cadmus.Conn do
   """
   def put_resp_header(%Conn{} = conn, key, value) do
     resp_headers = Map.put(conn.resp_headers, key, value)
-    %{ conn | resp_headers: resp_headers }
+    %{conn | resp_headers: resp_headers}
   end
 end

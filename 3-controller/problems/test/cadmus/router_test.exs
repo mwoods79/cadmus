@@ -2,7 +2,6 @@ defmodule Cadmus.RouterTest do
   use ExUnit.Case
   doctest Cadmus.Router
 
-
   ##
   # Helpers
   #
@@ -24,7 +23,6 @@ defmodule Cadmus.RouterTest do
 
     Cadmus.Router.call(conn)
   end
-
 
   ##
   # Tests

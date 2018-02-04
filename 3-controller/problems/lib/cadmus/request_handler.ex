@@ -1,5 +1,4 @@
 defmodule Cadmus.RequestHandler do
-
   alias Cadmus.Conn
 
   def handle(request, router) do
@@ -38,6 +37,7 @@ defmodule Cadmus.RequestHandler do
   """
   def parse_headers(%Conn{} = conn, [head | tail]) do
     [key, value] = String.split(head, ": ")
+
     conn
     |> Conn.put_req_header(key, value)
     |> parse_headers(tail)
@@ -65,8 +65,8 @@ defmodule Cadmus.RequestHandler do
   end
 
   def parse_params(%Conn{} = conn, "application/x-www-form-urlencoded", params_string) do
-    query_params = params_string |> URI.decode_query
-    %{ conn | query_params: query_params }
+    query_params = params_string |> URI.decode_query()
+    %{conn | query_params: query_params}
   end
 
   def parse_params(%Conn{} = conn, _content_type, _params_string), do: conn

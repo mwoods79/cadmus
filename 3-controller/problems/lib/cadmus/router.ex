@@ -3,9 +3,9 @@ defmodule Cadmus.Router do
   alias Cadmus.DogController
   alias Cadmus.HelloController
 
-  get "/hello", HelloController, :index
-  get "/dogs", DogController, :index
-  post "/dogs", DogController, :create
+  get("/hello", HelloController, :index)
+  get("/dogs", DogController, :index)
+  post("/dogs", DogController, :create)
 
   def match(conn, _method, _path) do
     conn

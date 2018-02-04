@@ -6,5 +6,4 @@ defmodule Cadmus.HelloController do
     |> put_status(200)
     |> put_resp_body("<h1>Hello World!</h1>")
   end
-
 end
