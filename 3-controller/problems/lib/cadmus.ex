@@ -13,6 +13,14 @@ defmodule Cadmus do
     end
   end
 
+  # Now that we have a namespace we know exactly where to place the logic for
+  # our controller.
+  def controller do
+    quote do
+      use Cadmus.Framework.Controller
+    end
+  end
+
   defmacro __using__(which) when is_atom(which) do
     apply(__MODULE__, which, [])
   end
