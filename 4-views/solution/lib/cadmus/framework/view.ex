@@ -6,7 +6,7 @@ defmodule Cadmus.Framework.View do
       template_content = File.read!(template)
       quote do
         def render(unquote(base_path), assigns) do
-          EEx.eval_string(unquote(template), assigns)
+          EEx.eval_string(unquote(template_content), assigns)
         end
       end
     end
