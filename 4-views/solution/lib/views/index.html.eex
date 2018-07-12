@@ -1,0 +1,1 @@
+<ul><%= for dog <- dogs do %><li><%= dog[:name] %></li><% end %></ul>
